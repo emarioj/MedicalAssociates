@@ -1,0 +1,583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="medicalAssociatesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Consumables">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Current_stock" Type="int" />
+        </EntityType>
+        <EntityType Name="Doctors_Status">
+          <Key>
+            <PropertyRef Name="DrId" />
+          </Key>
+          <Property Name="DrId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dr_Names" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="Contact" Type="int" />
+        </EntityType>
+        <EntityType Name="DoctorsStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Dr Names" Type="varchar" MaxLength="5" />
+          <Property Name="PatientId" Type="varchar" MaxLength="5" />
+          <Property Name="Status" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Inpateints">
+          <Key>
+            <PropertyRef Name="WardId" />
+          </Key>
+          <Property Name="WardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ward_No" Type="varchar" MaxLength="50" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="DOA" Type="date" />
+          <Property Name="DOD" Type="date" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Remedy/Treatment" Type="varchar" MaxLength="100" />
+          <Property Name="Note" Type="text" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="Item" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="Lab_Test_Requests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Test" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Result" Type="varchar" MaxLength="100" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="Sample" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="ServiceID" Type="int" />
+        </EntityType>
+        <EntityType Name="Lab_Tests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Price" Type="int" />
+        </EntityType>
+        <EntityType Name="Patient_Cue">
+          <Key>
+            <PropertyRef Name="Service_Number" />
+          </Key>
+          <Property Name="Service_Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" />
+          <Property Name="First_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Second_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="text" />
+        </EntityType>
+        <EntityType Name="Patient_List">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="First_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Second_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Contact" Type="int" />
+          <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="text" />
+        </EntityType>
+        <EntityType Name="Prescription_List">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="Diagnosis" Type="varchar" MaxLength="100" />
+          <Property Name="Remedy_Treatment" Type="varchar" MaxLength="50" />
+          <Property Name="Dosage" Type="char" MaxLength="10" />
+          <Property Name="Days" Type="int" />
+          <Property Name="Note" Type="text" />
+          <Property Name="Amount" Type="int" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="Dr" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="TRAIGE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Service_Number" Type="int" />
+          <Property Name="PatientID" Type="int" />
+          <Property Name="Blood_pressure" Type="varchar" MaxLength="20" />
+          <Property Name="Bod_temp" Type="varchar" MaxLength="20" />
+          <Property Name="MUAC" Type="varchar" MaxLength="20" />
+          <Property Name="Respiratory_rate" Type="varchar" MaxLength="20" />
+          <Property Name="Height" Type="int" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="Note" Type="text" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="200" />
+          <Property Name="Roles" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Wards">
+          <Key>
+            <PropertyRef Name="WardId" />
+          </Key>
+          <Property Name="WardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ward_No" Type="varchar" MaxLength="50" />
+          <Property Name="Capacity" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="text" />
+        </EntityType>
+        <EntityType Name="X-Rays">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Price" Type="int" />
+        </EntityType>
+        <EntityContainer Name="medicalAssociatesDBModelStoreContainer">
+          <EntitySet Name="Consumables" EntityType="Self.Consumables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctors_Status" EntityType="Self.Doctors_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DoctorsStatus" EntityType="Self.DoctorsStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inpateints" EntityType="Self.Inpateints" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lab_Test_Requests" EntityType="Self.Lab_Test_Requests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lab_Tests" EntityType="Self.Lab_Tests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Cue" EntityType="Self.Patient_Cue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_List" EntityType="Self.Patient_List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prescription_List" EntityType="Self.Prescription_List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRAIGE" EntityType="Self.TRAIGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wards" EntityType="Self.Wards" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="X-Rays" EntityType="Self.X-Rays" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="medicalAssociatesDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Consumable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Current_stock" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Doctors_Status">
+          <Key>
+            <PropertyRef Name="DrId" />
+          </Key>
+          <Property Name="DrId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dr_Names" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DoctorsStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Dr_Names" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="PatientId" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Inpateint">
+          <Key>
+            <PropertyRef Name="WardId" />
+          </Key>
+          <Property Name="WardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ward_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="DOA" Type="DateTime" Precision="0" />
+          <Property Name="DOD" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remedy_Treatment" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Lab_Test_Requests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Test" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Result" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Sample" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Lab_Tests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Patient_Cue">
+          <Key>
+            <PropertyRef Name="Service_Number" />
+          </Key>
+          <Property Name="Service_Number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" />
+          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Second_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Patient_List">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Second_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Contact" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Prescription_List">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="Diagnosis" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remedy_Treatment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dosage" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Days" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="Dr" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TRAIGE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Service_Number" Type="Int32" />
+          <Property Name="PatientID" Type="Int32" />
+          <Property Name="Blood_pressure" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Bod_temp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MUAC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Respiratory_rate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="Int32" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Roles" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Ward">
+          <Key>
+            <PropertyRef Name="WardId" />
+          </Key>
+          <Property Name="WardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ward_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Capacity" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="X_Rays">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="medicalAssociatesDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Consumables" EntityType="Self.Consumable" />
+          <EntitySet Name="Doctors_Status" EntityType="Self.Doctors_Status" />
+          <EntitySet Name="DoctorsStatus" EntityType="Self.DoctorsStatu" />
+          <EntitySet Name="Inpateints" EntityType="Self.Inpateint" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="Lab_Test_Requests" EntityType="Self.Lab_Test_Requests" />
+          <EntitySet Name="Lab_Tests" EntityType="Self.Lab_Tests" />
+          <EntitySet Name="Patient_Cue" EntityType="Self.Patient_Cue" />
+          <EntitySet Name="Patient_List" EntityType="Self.Patient_List" />
+          <EntitySet Name="Prescription_List" EntityType="Self.Prescription_List" />
+          <EntitySet Name="Tables" EntityType="Self.Table" />
+          <EntitySet Name="TRAIGEs" EntityType="Self.TRAIGE" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Wards" EntityType="Self.Ward" />
+          <EntitySet Name="X_Rays" EntityType="Self.X_Rays" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="medicalAssociatesDBModelStoreContainer" CdmEntityContainer="medicalAssociatesDBEntities">
+          <EntitySetMapping Name="Consumables">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.Consumable">
+              <MappingFragment StoreEntitySet="Consumables">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Current_stock" ColumnName="Current_stock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctors_Status">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.Doctors_Status">
+              <MappingFragment StoreEntitySet="Doctors_Status">
+                <ScalarProperty Name="DrId" ColumnName="DrId" />
+                <ScalarProperty Name="Dr_Names" ColumnName="Dr_Names" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoctorsStatus">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.DoctorsStatu">
+              <MappingFragment StoreEntitySet="DoctorsStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Dr_Names" ColumnName="Dr Names" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inpateints">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.Inpateint">
+              <MappingFragment StoreEntitySet="Inpateints">
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="Ward_No" ColumnName="Ward_No" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="DOA" ColumnName="DOA" />
+                <ScalarProperty Name="DOD" ColumnName="DOD" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remedy_Treatment" ColumnName="Remedy/Treatment" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lab_Test_Requests">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.Lab_Test_Requests">
+              <MappingFragment StoreEntitySet="Lab_Test_Requests">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Test" ColumnName="Test" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Sample" ColumnName="Sample" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lab_Tests">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.Lab_Tests">
+              <MappingFragment StoreEntitySet="Lab_Tests">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Cue">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.Patient_Cue">
+              <MappingFragment StoreEntitySet="Patient_Cue">
+                <ScalarProperty Name="Service_Number" ColumnName="Service_Number" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Second_Name" ColumnName="Second_Name" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_List">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.Patient_List">
+              <MappingFragment StoreEntitySet="Patient_List">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Second_Name" ColumnName="Second_Name" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prescription_List">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.Prescription_List">
+              <MappingFragment StoreEntitySet="Prescription_List">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="Diagnosis" ColumnName="Diagnosis" />
+                <ScalarProperty Name="Remedy_Treatment" ColumnName="Remedy_Treatment" />
+                <ScalarProperty Name="Dosage" ColumnName="Dosage" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="Dr" ColumnName="Dr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRAIGEs">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.TRAIGE">
+              <MappingFragment StoreEntitySet="TRAIGE">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Service_Number" ColumnName="Service_Number" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="Blood_pressure" ColumnName="Blood_pressure" />
+                <ScalarProperty Name="Bod_temp" ColumnName="Bod_temp" />
+                <ScalarProperty Name="MUAC" ColumnName="MUAC" />
+                <ScalarProperty Name="Respiratory_rate" ColumnName="Respiratory_rate" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Roles" ColumnName="Roles" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wards">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.Ward">
+              <MappingFragment StoreEntitySet="Wards">
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="Ward_No" ColumnName="Ward_No" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="X_Rays">
+            <EntityTypeMapping TypeName="medicalAssociatesDBModel.X_Rays">
+              <MappingFragment StoreEntitySet="X-Rays">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5ce5c89c22404973a32cd45d29f2974d" Name="Diagram1">
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.Consumable" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.Doctors_Status" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.DoctorsStatu" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.Inpateint" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.Invoice" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.Lab_Test_Requests" Width="1.5" PointX="13.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.Lab_Tests" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.Patient_Cue" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.Patient_List" Width="1.5" PointX="11.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.Prescription_List" Width="1.5" PointX="11.125" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.Table" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.TRAIGE" Width="1.5" PointX="13.625" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.User" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.Ward" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medicalAssociatesDBModel.X_Rays" Width="1.5" PointX="13" PointY="3.875" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
